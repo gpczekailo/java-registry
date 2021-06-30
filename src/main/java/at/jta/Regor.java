@@ -909,8 +909,6 @@ final public class Regor
   /******************************************************************************************************************************
    * Method set the specified string value (DO NOT USE THIS METHOD FOR READING BINARY, DWORD, MULTI OR EXPAND ENTRIES - JUST
    * FOR SZ - STRING ENTRIES!!!)
-   * Methode setzt (oder erstellt) einen Wert auf eine Zeichenfolge
-   * Will man den defaulteintrag ändern, so muss man valueName "" übergeben
    * @deprecated use <code>saveValue</code> instead of - just changed name
    * @param key obtained by openKey
    * @param valueName the string value name in the registry you want to set
@@ -926,8 +924,6 @@ final public class Regor
   /******************************************************************************************************************************
    * Method set the specified string value (DO NOT USE THIS METHOD FOR READING BINARY, DWORD, MULTI OR EXPAND ENTRIES - JUST
    * FOR SZ - STRING ENTRIES!!!)
-   * Methode setzt (oder erstellt) einen Wert auf eine Zeichenfolge
-   * Will man den defaulteintrag ändern, so muss man valueName "" übergeben
    * @param key obtained by openKey
    * @param valueName the string value name in the registry you want to set
    * @param value the new value you want to set
@@ -1236,7 +1232,7 @@ final public class Regor
   /******************************************************************************************************************************
    * Create new key/subkey in the registry with the specified name
    * Attentition: if the key is successfully returned, you should close and open the key again, because the obtained key
-   * doesnt have a high access level (so maybe creating or deleting a key/value wouldn´t be successful)
+   * doesnt have a high access level (so maybe creating or deleting a key/value wouldn't be successful)
    * @param key handle to parent key obtained from openKey
    * @param subkey name of the key/subkey you want to create
    * @return on success the handle to the new key will be returned, otherwhise it will be null
@@ -1254,7 +1250,7 @@ final public class Regor
   /******************************************************************************************************************************
    * Create new key/subkey in the registry with the specified name
    * Attentition: if the key is successfully returned, you should close and open the key again, because the obtained key
-   * doesnt have a high access level (so maybe creating or deleting a key/value wouldn´t be successful)
+   * doesnt have a high access level (so maybe creating or deleting a key/value wouldn't be successful)
    * @param key handle to parent key obtained from openKey
    * @param subkey name of the key/subkey you want to create
    * @return on success the handle to the new key will be returned, otherwhise it will be -1
@@ -1456,7 +1452,7 @@ final public class Regor
     }
     else if(items.length == 1)
     {
-      //if no space in it, then it is maybe hex string without comma´s
+      //if no space in it, then it is maybe hex string without comma's
       if (hexCommaString.indexOf(" ") == -1)
       {
         try{
@@ -1485,7 +1481,7 @@ final public class Regor
   }
 
   /***********************************************************************************************************************************
-   * Method converts a plain String into a hex comma separated String with 0´s between
+   * Method converts a plain String into a hex comma separated String with 0's between
    * @param plain String
    * @param appendNullSigns boolean if you want to add null signs (needed for multi and expand entries, but not for binary entry)
    * @return String the converted string
