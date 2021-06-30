@@ -6,7 +6,7 @@
 
   <groupId>at.jta</groupId>
   <artifactId>WinRegistry</artifactId>
-  <version>4.5</version>
+  <version>4.6</version>
 
   <name>WinRegistry</name>
   <description>Windown registry handling library.</description>
