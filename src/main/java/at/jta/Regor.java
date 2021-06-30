@@ -40,7 +40,7 @@ import java.io.FileOutputStream;
  * @version 3.3 20.10.2008 found major bug in the method extractAnyValue - the method returned and value found with the name, not only
  *  for the right key<br>
  * @version 3.4 21.10.2008 bug in the parseHexString method when you want to replace the 0 signs! It removed every 0 sign
- * @released 21.10.2008 (internal release)
+ * released 21.10.2008 (internal release)
  * @version 4.0 RC2 14.04.2009 From a discussion at the java-forum.org board, a member told me, that there is also a native
  *                     command called "reg.exe" and vista doesnt need admin privileges when you run it! So the version checks if
  *                     reg.exe is here! If not take regedit.exe
@@ -203,27 +203,27 @@ final public class Regor
   private INativeRegistryHandler nativeHandler = null;
 
   /**
-   * If the registry entry is a normal string key (plain key) - use <code>getKeyType(Key key, String valueName)/<code> to get the type
+   * If the registry entry is a normal string key (plain key) - use <code>getKeyType(Key key, String valueName)</code> to get the type
    */
   public static final int PLAIN_KEY = 1;
 
   /**
-   * If the registry entry is a binary key - use <code>getKeyType(Key key, String valueName)/<code> to get the type
+   * If the registry entry is a binary key - use <code>getKeyType(Key key, String valueName)</code> to get the type
    */
   public static final int BINARY_KEY = 2;
 
   /**
-   * If the registry entry is a dword key - use <code>getKeyType(Key key, String valueName)/<code> to get the type
+   * If the registry entry is a dword key - use <code>getKeyType(Key key, String valueName)</code> to get the type
    */
   public static final int DWORD_KEY = 3;
 
   /**
-   * If the registry entry is a multi string key - use <code>getKeyType(Key key, String valueName)/<code> to get the type
+   * If the registry entry is a multi string key - use <code>getKeyType(Key key, String valueName)</code> to get the type
    */
   public static final int MULTI_KEY = 4;
 
   /**
-   * If the registry entry is a expand string key - use <code>getKeyType(Key key, String valueName)/<code> to get the type
+   * If the registry entry is a expand string key - use <code>getKeyType(Key key, String valueName)</code> to get the type
    */
   public static final int EXPAND_KEY = 5;
 
@@ -281,12 +281,12 @@ final public class Regor
    * Method saves a binary entry for the given key, valuename and data
    * @deprecated use <code>savePlainBinary</code> instead of this method
    * @since version 3 (03.06.2008)
-   * @see <code>saveAnyValue</code> - method could have a deadlock
+   * See <code>saveAnyValue</code> - method could have a deadlock
    * @param key Key The parent key handle obtained by openKey
    * @param valueName String the binary value name in the registry
    * @param hexCommaData String the string converted in hexadecimal signs separated with commas.
    * Use <code>String convertStringToHexComma(String plainString, false)</code> to get the hex comma separated data
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    **********************************************************************************************************************************/
   public void saveBinary(Key key, String valueName, String hexCommaData) throws RegistryErrorException
   {
@@ -300,11 +300,11 @@ final public class Regor
   /**********************************************************************************************************************************
    * Method saves a binary entry for the given key, valuename and data
    * @since version 4 (27.03.2009)
-   * @see <code>extractAnyValue</code> - method could have a deadlock
+   * See <code>extractAnyValue</code> - method could have a deadlock
    * @param key Key The parent key handle obtained by openKey
    * @param valueName String the binary value name in the registry
    * @param plainData String like you would see in the registry (without any spaces, etc..)
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    *********************************************************************************************************************************/
   public void savePlainBinary(Key key, String valueName, String plainData) throws RegistryErrorException
   {
@@ -321,11 +321,11 @@ final public class Regor
    * Method reads from the registry a BINARY value - this is made via Runtime.getRuntime().exec(regedit) and is not one
    * of the best methods, but at least it doesnt need a dll
    * @since version 3 (03.06.2008 - guess who has birthday ;))
-   * @see <code>extractAnyValue</code> - method could have a deadlock
+   * See <code>extractAnyValue</code> - method could have a deadlock
    * @param key Key the obtained key from the registry
    * @param valueName String the valueName of the binary entry which you want to read
    * @return String null or the binary data separated by comma
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    *********************************************************************************************************************************/
   public String readBinary(Key key, String valueName) throws RegistryErrorException
   {
@@ -348,11 +348,11 @@ final public class Regor
   /**********************************************************************************************************************************
    * Method saves a dword entry in the registry
    * @since version 3 (03.06.2008)
-   * @see <code>saveAnyValue</code> - method could have a deadlock
+   * See <code>saveAnyValue</code> - method could have a deadlock
    * @param key Key the parent key handle obtained by openKey
    * @param valueName String the valuename of the dword entry
    * @param hexData String a hexadecimal String withouth comma or spaces (use <code>Long.toHexString(long)</code> to get a hex string)
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    *********************************************************************************************************************************/
   public void saveDword(Key key, String valueName, String hexData) throws RegistryErrorException
   {
@@ -371,11 +371,11 @@ final public class Regor
   /**********************************************************************************************************************************
    * Method reads the dword entry from the registry
    * @since version 3 (03.06.2008 - dont know who has birthday?)
-   * @see <code>extractAnyValue</code> - method could have a deadlock
+   * See <code>extractAnyValue</code> - method could have a deadlock
    * @param key Key the parent key handle obtained by openKey
    * @param valueName String the dword value
    * @return String the dword entry in a hex string
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    *********************************************************************************************************************************/
   public String readDword(Key key, String valueName) throws RegistryErrorException
   {
@@ -399,12 +399,12 @@ final public class Regor
    * Method saves a multi string entry in the registry
    * @deprecated use <code>savePlainMulti</code> instead of
    * @since version 3 (03.06.2008)
-   * @see <code>saveAnyValue</code> - method could have a deadlock
+   * See <code>saveAnyValue</code> - method could have a deadlock
    * @param key Key the parent key handle obtained by openKey
    * @param valueName String the multi value name
    * @param hexCommaZeroData String the data to write converted in hex string separated by a comma with trailing zeros
    * Use <code>String convertStringToHexComma(String plainString, true)</code> to get the hex comma separated data with 0 signs between
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    **********************************************************************************************************************************/
   public void saveMulti(Key key, String valueName, String hexCommaZeroData) throws RegistryErrorException
   {
@@ -418,11 +418,11 @@ final public class Regor
   /**********************************************************************************************************************************
    * Method saves a multi string entry in the registry
    * @since version 4 (27.03.2009)
-   * @see <code>saveAnyValue</code> - method could have a deadlock
+   * See <code>saveAnyValue</code> - method could have a deadlock
    * @param key Key the parent key handle obtained by openKey
    * @param valueName String the multi value name
    * @param plainData String
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    *********************************************************************************************************************************/
   public void savePlainMulti(Key key, String valueName, String plainData) throws RegistryErrorException
   {
@@ -436,12 +436,12 @@ final public class Regor
   /**********************************************************************************************************************************
    * Method reads a multi string entry from the registry
    * @since version 3 (03.06.2008 - my dad has birthday ;))
-   * @see <code>extractAnyValue</code> - method could have a deadlock
+   * See <code>extractAnyValue</code> - method could have a deadlock
    * @param key Key the parent key handle obtained by openKey
    * @param valueName String the multi value name
    * @return String the HEXADECIMAL values separated by comma (use <code>String parseHexString(String)</code> to convert it
    * the line seperator is also a hex null! You have to parse it out
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    *********************************************************************************************************************************/
   public String readMulti(Key key, String valueName) throws RegistryErrorException
   {
@@ -465,12 +465,12 @@ final public class Regor
    * Method saves an expand string entry
    * @deprecated use <code>savePlainExpand</code> instead of
    * @since version 3 (03.06.2008)
-   * @see <code>saveAnyValue</code> - method could have a deadlock
+   * See <code>saveAnyValue</code> - method could have a deadlock
    * @param key Key the parent key handle obtained by openKey
    * @param valueName String the expand value name
    * @param hexCommaZeroData String the data to write converted in hex string separated by a comma with trailing zeros
    * Use <code>String convertStringToHexComma(String plainString, true)</code> to get the hex comma separated data with 0 signs between
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    *********************************************************************************************************************************/
   public void saveExpand(Key key, String valueName, String hexCommaZeroData) throws RegistryErrorException
   {
@@ -484,11 +484,11 @@ final public class Regor
   /**********************************************************************************************************************************
    * Method saves an expand string entry
    * @since version 4 (27.03.2009)
-   * @see <code>saveAnyValue</code> - method could have a deadlock
+   * See <code>saveAnyValue</code> - method could have a deadlock
    * @param key Key the parent key handle obtained by openKey
    * @param valueName String the expand value name
    * @param plainData String
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    **********************************************************************************************************************************/
   public void savePlainExpand(Key key, String valueName, String plainData) throws RegistryErrorException
   {
@@ -502,11 +502,11 @@ final public class Regor
   /**********************************************************************************************************************************
    * Method reads an expand string entry
    * @since version 3 (03.06.2008)
-   * @see <code>extractAnyValue</code> - method could have a deadlock
+   * See <code>extractAnyValue</code> - method could have a deadlock
    * @param key Key the parent key handle obtained by openKey
    * @param valueName String the expand value name
    * @return String the HEXADECIMAL values separated by comma (use <code>String parseHexString(String)</code> to convert it
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    *********************************************************************************************************************************/
   public String readExpand(Key key, String valueName) throws RegistryErrorException
   {
@@ -537,7 +537,7 @@ final public class Regor
    * @param maxValueNameLength maximum length of valueName name (used because for memory allocating in the java.dll - if you obtain
    * the size from getChildInformation increase the [4] int array by 1)
    * @return byte[] either the name of the valueName or null if not found or an error occurs or if the maxValueNameLength is to short
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    *****************************************************************************************************************************/
   public byte[] enumValueName(Key key, int valueNameIndex, int maxValueNameLength) throws RegistryErrorException
   {
@@ -553,7 +553,7 @@ final public class Regor
    * @param maxValueNameLength maximum length of valueName name (used because for memory allocating in the java.dll - if you obtain
    * the size from getChildInformation increase the [4] int array by 1)
    * @return byte[] either the name of the valueName or null if not found or an error occurs or if the maxValueNameLength is to short
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    * @deprecated use <code>byte[] enumValueName(Key key, int valueNameIndex, int maxValueNameLength)</code> instead of
    *****************************************************************************************************************************/
   public byte[] _enumValueName(int key, int valueNameIndex, int maxValueNameLength) throws RegistryErrorException
@@ -581,7 +581,7 @@ final public class Regor
    * @param key either one of the root nodes or a key obtained from openKey
    * @param subkey a string to a subkey - if  the subkey is empty or null the information will be obtained from the given key
    * @return List on success and found a filled list with strings will be returned - on error or nothing found null will be returned
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    ****************************************************************************************************************************/
   public List listValueNames(Key key, String subkey) throws RegistryErrorException
   {
@@ -592,7 +592,7 @@ final public class Regor
    * Returns every valueName (not only the String value names)
    * @param key either one of the root nodes or a key obtained from openKey
    * @return List on success and found a filled list with strings will be returned - on error or nothing found null will be returned
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    ****************************************************************************************************************************/
   public List listValueNames(Key key) throws RegistryErrorException
   {
@@ -604,7 +604,7 @@ final public class Regor
    * @param key either one of the root nodes or a key obtained from openKey
    * @param subkey a string to a subkey - if  the subkey is empty or null the information will be obtained from the given key
    * @return List on success and found a filled list with strings will be returned - on error or nothing found null will be returned
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    * @deprecated use <code>List listValueNames(Key key, String subkey)</code> instead of
    ****************************************************************************************************************************/
   public List _listValueNames(int key, String subkey) throws RegistryErrorException
@@ -646,7 +646,7 @@ final public class Regor
    * Returns every valueName (not only the String value names)
    * @param key either one of the root nodes or a key obtained from openKey
    * @return List on success and found a filled list with strings will be returned - on error or nothing found null will be returned
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    * @deprecated use <code>List listValueNames(Key key)</code> instead of
    ****************************************************************************************************************************/
   public List _listValueNames(int key) throws RegistryErrorException
@@ -663,7 +663,7 @@ final public class Regor
    * @param maxKeyNameLength the maximum length of a subkey name (used because for memory allocating in the java.dll - if you obtain
    * the size from getChildInformation increase the [3] int array by 1 )
    * @return byte[] on error or not found or the maxKeyNameLength is to short it will returns null, on success the name of the subkey
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    *****************************************************************************************************************************/
   public byte[] enumKeys(Key key, int subkeyIndex, int maxKeyNameLength) throws RegistryErrorException
   {
@@ -679,7 +679,7 @@ final public class Regor
    * @param maxKeyNameLength the maximum length of a subkey name (used because for memory allocating in the java.dll - if you obtain
    * the size from getChildInformation increase the [3] int array by 1 )
    * @return byte[] on error or not found or the maxKeyNameLength is to short it will returns null, on success the name of the subkey
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    * @deprecated use <code>byte[] enumKeys(Key key, int subkexindex, int maxKeyNameLength)</code> instead of
    *****************************************************************************************************************************/
   public byte[] _enumKeys(int key, int subkeyIndex, int maxKeyNameLength) throws RegistryErrorException
@@ -707,7 +707,7 @@ final public class Regor
    * @param key either one of the root nodes or a key obtained from openKey
    * @param subkey a string to a subkey - if  the subkey is empty or null the information will be obtained from the given key
    * @return List on success and found a filled list with strings will be returned - on error or nothing found null will be returned
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    *****************************************************************************************************************************/
   public List listKeys(Key key, String subkey) throws RegistryErrorException
   {
@@ -718,7 +718,7 @@ final public class Regor
    * Returns all subkeys from the given key
    * @param key either one of the root nodes or a key obtained from openKey
    * @return List on success and found a filled list with strings will be returned - on error or nothing found null will be returned
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    ****************************************************************************************************************************/
   public List listKeys(Key key) throws RegistryErrorException
   {
@@ -730,7 +730,7 @@ final public class Regor
    * @param key either one of the root nodes or a key obtained from openKey
    * @param subkey a string to a subkey - if  the subkey is empty or null the information will be obtained from the given key
    * @return List on success and found a filled list with strings will be returned - on error or nothing found null will be returned
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    * @deprecated use <code>List listKeys(Key key, String subkey)</code> instead of
    *****************************************************************************************************************************/
   public List _listKeys(int key, String subkey) throws RegistryErrorException
@@ -772,7 +772,7 @@ final public class Regor
    * Returns all subkeys from the given key
    * @param key either one of the root nodes or a key obtained from openKey
    * @return List on success and found a filled list with strings will be returned - on error or nothing found null will be returned
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    * @deprecated use <code>List listKeys(Key key)</code> instead of
    ****************************************************************************************************************************/
   public List _listKeys(int key) throws RegistryErrorException
@@ -789,7 +789,7 @@ final public class Regor
    * (for other operations you should increase the [3] or [4] value by 1 because of the terminating \0 in C - because you handle
    * with the java.dll)
    * if nothing found or illegal key, the values are -1 of the array (at index 1 the value would be 6 the other -1)
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    *****************************************************************************************************************************/
   public int[] getChildInformation(Key key) throws RegistryErrorException
   {
@@ -805,7 +805,7 @@ final public class Regor
    * (for other operations you should increase the [3] or [4] value by 1 because of the terminating \0 in C - because you handle
    * with the java.dll)
    * if nothing found or illegal key, the values are -1 of the array (at index 1 the value would be 6 the other -1)
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    * @deprecated use <code>int[] getChildInformation(Key key)</code> instead of
    *****************************************************************************************************************************/
   public int[] _getChildInformation(int key) throws RegistryErrorException
@@ -835,7 +835,7 @@ final public class Regor
    * @param valueName name of String value you want to delete (if the string is empty or null the default entry will be
    * cleared)
    * @return int
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    *****************************************************************************************************************************/
   public int deleteEntry(Key key, String valueName) throws RegistryErrorException
   {
@@ -849,7 +849,7 @@ final public class Regor
    * @param valueName name of String value you want to delete (if the string is empty or null the default entry will be
    * deleted)
    * @return int
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    *****************************************************************************************************************************/
   public int delValue(Key key, String valueName) throws RegistryErrorException
   {
@@ -862,7 +862,7 @@ final public class Regor
    * @param valueName name of String value you want to delete (if the string is empty or null the default entry will be
    * cleared)
    * @return int
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    * @deprecated use <code>int delValue(Key key, String valueName)</code> instead of
    *****************************************************************************************************************************/
   public int _delValue(int key, String valueName) throws RegistryErrorException
@@ -899,7 +899,7 @@ final public class Regor
    * @param valueName the string value name in the registry you want to set
    * @param value the new value you want to set
    * @return on success, return is ERROR_SUCCESS if not -1 or sth else will be returned
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    ****************************************************************************************************************************/
   public int saveValue(Key key, String valueName, String value) throws RegistryErrorException
   {
@@ -914,7 +914,7 @@ final public class Regor
    * @param valueName the string value name in the registry you want to set
    * @param value the new value you want to set
    * @return on success, return is ERROR_SUCCESS if not -1 or sth else will be returned
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    *****************************************************************************************************************************/
   public int setValue(Key key,String valueName, String value) throws RegistryErrorException
   {
@@ -928,7 +928,7 @@ final public class Regor
    * @param valueName the string value name in the registry you want to set
    * @param value the new value you want to set
    * @return on success, return is ERROR_SUCCESS if not -1 or sth else will be returned
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    * @deprecated use <code>int setValue(Key key, String valueName, String value)</code> instead of
    *****************************************************************************************************************************/
   public int _setValue(int key,String valueName, String value) throws RegistryErrorException
@@ -963,7 +963,7 @@ final public class Regor
    * empty or NULL)
    * @return byte[] if found the data in the string value will be returned (to get a string use the class method parseValue(byte[]))
    * on error NULL will be returned
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    *****************************************************************************************************************************/
   public String readValueAsString(Key key, String valueName) throws RegistryErrorException
   {
@@ -981,7 +981,7 @@ final public class Regor
    * empty or NULL)
    * @return byte[] if found the data in the string value will be returned (to get a string use the class method parseValue(byte[]))
    * on error NULL will be returned
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    *****************************************************************************************************************************/
   public byte[] readValue(Key key, String valueName) throws RegistryErrorException
   {
@@ -996,7 +996,7 @@ final public class Regor
    * empty or NULL)
    * @return byte[] if found the data in the string value will be returned (to get a string use the class method parseValue(byte[]))
    * on error NULL will be returned
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    * @deprecated use <code>byte[] readValue(Key key, String valueName)</code> instead of
    *****************************************************************************************************************************/
   public byte[] _readValue(int key, String valueName) throws RegistryErrorException
@@ -1025,7 +1025,7 @@ final public class Regor
    * @param key Key
    * @param valueName String
    * @return String
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    *****************************************************************************************************************************/
   public String readAnyValueString(Key key, String valueName) throws RegistryErrorException
   {
@@ -1085,7 +1085,7 @@ final public class Regor
    * names
    * @return int 0 = invalid key or cannot determine keytype, 1 = plain, 2 = binary, 3 = dword, 4 = multi, 5 = expand key - use the
    * definied types *_KEY
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    *****************************************************************************************************************************/
   public int getKeyType(Key key, String valueName) throws RegistryErrorException
   {
@@ -1145,7 +1145,7 @@ final public class Regor
    * Flush method - dont know what the method exactly does just implemented because i found it in the java sun source
    * @param key obtained the key from openKey
    * @return on success, ERROR_SUCESS will be returned! on error -1 or sth else
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    *****************************************************************************************************************************/
   public int flushKey(Key key) throws RegistryErrorException
   {
@@ -1156,7 +1156,7 @@ final public class Regor
    * Flush method - dont know what the method exactly does just implemented because i found it in the java sun source
    * @param key obtained the key from openKey
    * @return on success, ERROR_SUCESS will be returned! on error -1 or sth else
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    * @deprecated use <code>int flushKey(Key key)</code> instead of
    *****************************************************************************************************************************/
   public int _flushKey(int key) throws RegistryErrorException
@@ -1236,7 +1236,7 @@ final public class Regor
    * @param key handle to parent key obtained from openKey
    * @param subkey name of the key/subkey you want to create
    * @return on success the handle to the new key will be returned, otherwhise it will be null
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    *****************************************************************************************************************************/
   public Key createKey(Key key, String subkey) throws RegistryErrorException
   {
@@ -1254,7 +1254,7 @@ final public class Regor
    * @param key handle to parent key obtained from openKey
    * @param subkey name of the key/subkey you want to create
    * @return on success the handle to the new key will be returned, otherwhise it will be -1
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    * @deprecated use <code>Key createKey(Key key, String subkey)</code> instead of
    *****************************************************************************************************************************/
   public int _createKey(int key, String subkey) throws RegistryErrorException
@@ -1285,7 +1285,7 @@ final public class Regor
    * Close an obtained key for right usage
    * @param key the key handle
    * @return int on error it will be -1
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    ****************************************************************************************************************************/
   public int closeKey(Key key) throws RegistryErrorException
   {
@@ -1296,7 +1296,7 @@ final public class Regor
    * Close an obtained key for right usage
    * @param key the key handle
    * @return int on error it will be -1
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    * @deprecated use <code>closeKey(Key key)</code> instead of
    ****************************************************************************************************************************/
   public int _closeKey(int key) throws RegistryErrorException
@@ -1330,7 +1330,7 @@ final public class Regor
    * if subkey name is "" or null it returns the handle to the root node
    * @param security_mask the security mask to handle with the opened key (see security mask doc at the begin for detailed information)
    * @return Key on NULL (when not found or not allowed) otherwhise the handle to the obtained key (in the Key Object)
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    *****************************************************************************************************************************/
   public Key openKey(Key key, String subkey, int security_mask) throws RegistryErrorException
   {
@@ -1348,7 +1348,7 @@ final public class Regor
    * if subkey name is "" or null it returns the handle to the root node
    * @return Key null if not found or not allowed (attention here this methods allways uses the KEY_ALL_ACCESS security mask)
    * on success the handle to key will be returned
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    *****************************************************************************************************************************/
   public Key openKey(Key key, String subkey) throws RegistryErrorException
   {
@@ -1362,7 +1362,7 @@ final public class Regor
    * if subkey name is "" or null it returns the handle to the root node
    * @param security_mask the security mask to handle with the opened key (see security mask doc at the begin for detailed information)
    * @return int on error -1 (when not found or not allowed) otherwhise the handle to the obtained key
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    * @deprecated use <code>openKey(Key key, String subkey, int security_mask)</code> instead of
    *****************************************************************************************************************************/
   public int _openKey(int key, String subkey, int security_mask) throws RegistryErrorException
@@ -1396,7 +1396,7 @@ final public class Regor
    * if subkey name is "" or null it returns the handle to the root node
    * @return int -1 if not found or not allowed (attention here this methods allways uses the KEY_ALL_ACCESS security mask)
    * on success the handle to key will be returned
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    * @deprecated use <code>openKey(Key key, String subkey)</code> instead of
    *****************************************************************************************************************************/
   public int _openKey(int key, String subkey) throws RegistryErrorException
@@ -1625,7 +1625,7 @@ final public class Regor
   /**********************************************************************************************************************************
    * Method caches a complete key + 1 subkey
    * @param key Key the registry key which should be cached + subchildren
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    *********************************************************************************************************************************/
   public void cacheKeys(Key key) throws RegistryErrorException
   {
@@ -1638,7 +1638,7 @@ final public class Regor
    * @param key Key the registry key which should be cached + subchildren
    * @param maximumChildren int amount of the subchildren which should be cached (attention, this may create a java.lang.OutofMemory
    * Error if you have not enoguth memory use -Xmx512M or sth)
-   * @throws RegistryErrorException
+   * @throws RegistryErrorException exception
    *********************************************************************************************************************************/
   public void cacheKeys(Key key, int maximumChildren) throws RegistryErrorException
   {
@@ -1690,8 +1690,8 @@ final public class Regor
 
   /**********************************************************************************************************************************
    * Method refreshes the cached entries
-   * @todo implement 100% funtionality - i dont know the deepth search of the subkinds
-   * @throws RegistryErrorException
+   * TODO: implement 100% funtionality - i dont know the deepth search of the subkinds
+   * @throws RegistryErrorException exception
    *********************************************************************************************************************************/
   public void refreshCaches() throws RegistryErrorException
   {
@@ -1784,7 +1784,7 @@ final public class Regor
    * @param key String
    * @param name String
    * @param value String
-   * @throws NoEntryException
+   * @throws NoEntryException exception
    *********************************************************************************************************************************/
   private void setChachedValue(String key, String name, String value)
   {
@@ -1832,11 +1832,11 @@ final public class Regor
     }
   }
 
-  /******************************************************************************************************************************
+  /**
    * main for testing and some examples are stored here
    * @param args String[]
-   * @throws Exception
-   *****************************************************************************************************************************/
+   * @throws Exception exception exception
+   **/
   public static void main(String[] args) throws Exception
   {
     Regor regor = new Regor();
@@ -1996,7 +1996,7 @@ final public class Regor
      * @param type String the type (BINARY, DWORD, MULTI, EXPAND)
      * @param data String  the data which should be stored in the registry (it must be converted into the right format for the given type)
      * @return boolean returns always true (otherwhise exceptio is thrown) - maybe better use in future
-     * @throws RegistryErrorException
+     * @throws RegistryErrorException exception
      *******************************************************************************************************************************/
     public boolean saveAnyValue(String path, String valueName, String type, String data) throws RegistryErrorException
     {
@@ -2041,7 +2041,7 @@ final public class Regor
      * @param appendType boolean if the method should append the type - not needed with regedit.exe method, because the type is always
      * added
      * @return String null if the valuename is not found or the path could not be exported - otherwhise the data from the registry
-     * @throws RegistryErrorException
+     * @throws RegistryErrorException exception
      *********************************************************************************************************************************/
     public String extractAnyValue(String path, String valueName, boolean appendType) throws RegistryErrorException
     {
@@ -2148,7 +2148,7 @@ final public class Regor
      * @param key String the registry key which should be cached + subchildren
      * @param maximumChildren int amount of the subchildren which should be cached (attention, this may create a java.lang.OutofMemory
      * Error if you have not enoguth memory use -Xmx512M or sth)
-     * @throws RegistryErrorException
+     * @throws RegistryErrorException exception
      *********************************************************************************************************************************/
     public void cacheKeys(String key, int maximumChildren) throws RegistryErrorException
     {
@@ -2296,7 +2296,7 @@ final public class Regor
      * @param type String the type (BINARY, DWORD, MULTI, EXPAND)
      * @param data String  the data which should be stored in the registry (it must be converted into the right format for the given type)
      * @return boolean returns always true (otherwhise exceptio is thrown) - maybe better use in future
-     * @throws RegistryErrorException
+     * @throws RegistryErrorException exception
      *******************************************************************************************************************************/
     public boolean saveAnyValue(String path, String valueName, String type, String data) throws RegistryErrorException
     {
@@ -2328,7 +2328,7 @@ final public class Regor
      * @param valueName String the valuename which should be read from the registry key
      * @param appendType boolean add the type to the return string
      * @return String null if the valuename is not found or the path could not be exported - otherwhise the data from the registry
-     * @throws RegistryErrorException
+     * @throws RegistryErrorException exception
      *********************************************************************************************************************************/
     public String extractAnyValue(String path, String valueName, boolean appendType) throws RegistryErrorException
     {
@@ -2430,7 +2430,7 @@ final public class Regor
      * @param key String the registry key which should be cached + subchildren
      * @param maximumChildren int amount of the subchildren which should be cached (attention, this may create a java.lang.OutofMemory
      * Error if you have not enoguth memory use -Xmx512M or sth)
-     * @throws RegistryErrorException
+     * @throws RegistryErrorException exception
      *********************************************************************************************************************************/
     public void cacheKeys(String key, int maximumChildren) throws RegistryErrorException
     {
